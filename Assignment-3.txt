@@ -1,0 +1,48 @@
+﻿## Assignment-3
+
+Problem statement:- Consider a monolithic java application stack. Apache Web Server, Apache Tomcat application server with Active MQ and Oracle and MongoDB backend.
+                    Propose a solution to migrate this application stack to AWS. Mention all the AWS services you would use and how you would maintain HA and Load Balancing (consider app to be stateless). 
+                    Mention rationale for each design decision.
+
+Proposed Solution:-
+
+## Migration Phases ##
+
+->Planning   – It will include financial assessment (TOC), technical assessment, prototype creation or proof of concept, data migration planning and application migration planning.
+
+->Execution  – It will have execution of planning, modification of application source code and testing.
+
+->Deployment – It will have deploy application and data migration, AWS Cloud has various tools like AWS Elastic Beanstalk, AWS CloudFormation, AWS OpsWorks, etc.. for deployment and management.
+
+->Monitor    – AWSCloud has AWS CloudTrail and Amazon CloudWatch services for monitor AWS resources.
+
+Step 1: Assume monolithic java application stack of apache web server,apache tomcat application server and database setup of 
+        activeMQ and MongoDB is ready.
+
+Step 2: AWS account should be created and should have rights to create virtual machine using AWS AMI id(free tier) of the particular operating system.
+
+Step 3: Source file for monolithic java application stack is build and present. Deploy one AWS-EC2 instance(centos) using public centos AMI id.
+        Use security group feature to add any firewall rule inbound/outbound from the machine.
+		
+Step 4: Data scripts from ActiveMQ,mongoDB should be taken out. Deploy another AWS-EC2 instances and setup ActiveMQ,MongoDB setup on the
+        the same. Run the necessary data scipts on the respective machine. Add the required firewall rule on the machine from the AWS-EC2
+		console only.
+
+Step 5: Once the machines are ready ,you can check the public/private IPAddress of those machine from the AWS-EC2 console.
+        NOTE: To access the AWS-EC2 instance have to use only public IPAddress. AWS-EC2 instances never communicate with 
+		other machine using private ipaddress.
+		Follow the given link to connect to any AWS-EC2 instance.
+		https://aws.amazon.com/ec2/getting-started/
+		
+Step 6: Following AWS-EC2 services can be used to make this application more efficient and flexible.
+
+->S3 (Simple Storage Service) - Amazon S3 provides a highly durable and available store for a variety of content, ranging from web applications to media files.
+->ELB (Elastic Load Balancer) - Elastic Load Balancing automatically distributes incoming application traffic across multiple Amazon EC2 instances.
+->Route 53 (DNS Service) - Amazon Route 53 is a highly available and scalable Domain Name System (DNS).
+
+
+		
+		
+
+
+ 
